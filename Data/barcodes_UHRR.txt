@@ -1,0 +1,41 @@
+"XC"	"method"	"Pap_name"
+"AAACAT"	"Smart_Kapa"	"SmartScribe"
+"ATATGA"	"Smart_Kapa"	"SmartScribe"
+"TAAAAC"	"Smart_Kapa"	"SmartScribe"
+"TTAACT"	"Smart_Kapa"	"SmartScribe"
+"GGACAT"	"Smart_Kapa"	"SmartScribe"
+"CCCCAC"	"Smart_Kapa"	"SmartScribe"
+"CGTCGC"	"Smart_Kapa"	"SmartScribe"
+"GCTGGG"	"Smart_Kapa"	"SmartScribe"
+"AACATA"	"Maxima_Adv"	"Soumillon"
+"ATGTAA"	"Maxima_Adv"	"Soumillon"
+"TAATAG"	"Maxima_Adv"	"Soumillon"
+"TTATCA"	"Maxima_Adv"	"Soumillon"
+"TCCAAC"	"Maxima_Adv"	"Soumillon"
+"CCGCAG"	"Maxima_Adv"	"Soumillon"
+"CTGGGC"	"Maxima_Adv"	"Soumillon"
+"GGCGCT"	"Maxima_Adv"	"Soumillon"
+"AATATG"	"Maxima_Kapa"	"Ziegenhain"
+"ATTGTT"	"Maxima_Kapa"	"Ziegenhain"
+"TAGAAT"	"Maxima_Kapa"	"Ziegenhain"
+"TTGTTA"	"Maxima_Kapa"	"Ziegenhain"
+"CTCTCC"	"Maxima_Kapa"	"Ziegenhain"
+"CCTCGG"	"Maxima_Kapa"	"Ziegenhain"
+"GAGGGC"	"Maxima_Kapa"	"Ziegenhain"
+"GGGCGA"	"Maxima_Kapa"	"Ziegenhain"
+"AATTTC"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"CATAAA"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"TATCAT"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"TTTTAG"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"ACGCGC"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"CGCAGG"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"GCCCCT"	"Maxima_Kapa_Peg"	"molecular
+crowding"
+"GGTCCC"	"Maxima_Kapa_Peg"	"molecular
+crowding"
