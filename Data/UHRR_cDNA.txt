@@ -1,0 +1,41 @@
+"yield"	"XC"	"Pap_name"
+5.880463872	"GCTGGG"	"SmartScribe"
+7.628902765	"CGTCGC"	"SmartScribe"
+5.587867975	"CCCCAC"	"SmartScribe"
+10.69759144	"GGACAT"	"SmartScribe"
+3.832292596	"TTAACT"	"SmartScribe"
+1.677074041	"TAAAAC"	"SmartScribe"
+1.869759144	"ATATGA"	"SmartScribe"
+2.29794826	"AAACAT"	"SmartScribe"
+4.624442462	"GGCGCT"	"Soumillon"
+2.719000892	"CTGGGC"	"Soumillon"
+5.316681534	"CCGCAG"	"Soumillon"
+7.143621766	"TCCAAC"	"Soumillon"
+3.061552186	"TTATCA"	"Soumillon"
+1.755575379	"TAATAG"	"Soumillon"
+1.020517395	"ATGTAA"	"Soumillon"
+0.763603925	"AACATA"	"Soumillon"
+21.55932203	"GGGCGA"	"Ziegenhain"
+38.18019625	"GAGGGC"	"Ziegenhain"
+19.67528992	"CCTCGG"	"Ziegenhain"
+20.23907226	"CTCTCC"	"Ziegenhain"
+15.73595004	"TTGTTA"	"Ziegenhain"
+7.286351472	"TAGAAT"	"Ziegenhain"
+4.132024978	"ATTGTT"	"Ziegenhain"
+5.131132917	"AATATG"	"Ziegenhain"
+52.82426405	"GGTCCC"	"molecular
+crowding"
+25.54861731	"GCCCCT"	"molecular
+crowding"
+61.68064228	"CGCAGG"	"molecular
+crowding"
+41.86262266	"ACGCGC"	"molecular
+crowding"
+23.17216771	"TTTTAG"	"molecular
+crowding"
+14.86529884	"TATCAT"	"molecular
+crowding"
+15.22925959	"CATAAA"	"molecular
+crowding"
+20.41748439	"AATTTC"	"molecular
+crowding"
