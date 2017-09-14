@@ -1,20 +1,27 @@
----
-title: 'Figure 4: Sensitivity'
-output:
-  github_document: 
-    html_preview: false
----
+Figure 4: Sensitivity
+================
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
 
 Use this code to reproduce Figure 4 from Bagnoli et al., 2017.
 
-
 Step 1: load required packages & functions:
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+
+``` r
 pckgs <- c("ggplot2","dplyr","cowplot")
 lapply(pckgs, function(x) suppressMessages(require(x, character.only = TRUE)))
+```
 
+    ## [[1]]
+    ## [1] TRUE
+    ## 
+    ## [[2]]
+    ## [1] TRUE
+    ## 
+    ## [[3]]
+    ## [1] TRUE
+
+``` r
 SCRB_col <- "#4CAF50"
 SMURF_col <- "#88CCFF"
 theme_pub <- theme_classic() + theme(axis.text = element_text(colour="black", size=15), 
@@ -65,27 +72,28 @@ format_si <- function(...) {
 }
 
 path_to_data <- "/Volumes/htp/mcSCRB-seqPaper/Analysis_GitHub/Bagnoli_2017/Data/"
-
 ```
 
-
 Step 2: load data:
-```{r}
+
+``` r
 JM8 <- readRDS(paste(path_to_data,"JM8.rds",sep=""))
 JM8_barcodeinfo <- read.table(paste(path_to_data,"barcodes_QCfilter.txt",sep=""), header=T, sep="\t",stringsAsFactors = F)
 J1_ERCC <- readRDS(paste(path_to_data,"J1_ERCC.rds",sep=""))
 ```
 
-
 Step 3: subset to valid barcodes:
-```{r}
+
+``` r
 barcodespass <- JM8_barcodeinfo[which(JM8_barcodeinfo$QCpass==TRUE),]
 dim(barcodespass)
 ```
 
+    ## [1] 249  10
 
 Step 4: Generate panel A
-```{r}
+
+``` r
 options(scipen=999) #prevent scientific notation
 exprdf <- data.frame() #initialise output
 for(i in c(seq(10000,90000,10000),seq(100000,1000000,100000),2000000,3000000,4000000)){ #for each downsampling depth, get the UMI counts and Gene counts
@@ -120,18 +128,25 @@ p_Fig4a <- ggplot(rel_increase[which(rel_increase$depth<4000000),],aes(x=depth,y
 p_Fig4a
 ```
 
+![](Figure4_Sensitivity_Notebook_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
 
 Step 5: Preprocess ERCC data
-```{r}
+
+``` r
 J1_ERCC_expr <- J1_ERCC$downsampled$downsampled_1000000$umicounts_downsampled #get data at 1 mio reads
 plot(density(colSums(J1_ERCC_expr)),main = "UMI content distribution") #check distribution of UMI counts per cell 
+```
+
+![](Figure4_Sensitivity_Notebook_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
+
+``` r
 J1_ERCC_expr<-J1_ERCC_expr[,which(colSums(J1_ERCC_expr)>60000 & colSums(J1_ERCC_expr)<120000)] # subset to good barcodes
 selcted_bcs <- colnames(J1_ERCC_expr) 
 ```
 
+Step 6: Estimate cellular mRNA content
 
-Step 6: Estimate cellular mRNA content 
-```{r}
+``` r
 ERCC_detect_fract <- colSums(J1_ERCC_expr[grep("ERCC",row.names(J1_ERCC_expr)),selcted_bcs])/77923 #77923 is the number of spiked ERCC molecules
 ens_umis <- colSums(J1_ERCC_expr[grep("ENSMUS",row.names(J1_ERCC_expr)),selcted_bcs])
 cellularRNAcontent <- ens_umis/ERCC_detect_fract
@@ -139,8 +154,11 @@ plot(density(cellularRNAcontent))
 abline(v = median(cellularRNAcontent),lty="dashed")
 ```
 
+![](Figure4_Sensitivity_Notebook_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
+
 Step 7: Generate Panel B: UMI detection vs mRNA content
-```{r warning=FALSE}
+
+``` r
 p_Fig4b <- ggplot(exprdf[which(exprdf$depth<4000000),],aes(x=depth,y=(UMIs/median(cellularRNAcontent)*100),fill=method,group=interaction(depth,method))) + 
                   theme_pub + geom_boxplot(outlier.shape = NA,position = "identity") +  
                   scale_x_log10(labels=format_si(),breaks=c(10000,50000,100000,500000,1000000,5000000),limits=c(9000,5000000))+ 
@@ -151,10 +169,11 @@ p_Fig4b <- ggplot(exprdf[which(exprdf$depth<4000000),],aes(x=depth,y=(UMIs/media
 p_Fig4b
 ```
 
+![](Figure4_Sensitivity_Notebook_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)
 
 Step 8: Save final plot
-```{r warning=FALSE}
+
+``` r
 p_Fig4 <- plot_grid(p_Fig4a,p_Fig4b,align = "hv",labels=c("A","B"),nrow = 2)
 ggsave(p_Fig4,filename = "Figure4.pdf",device="pdf",width = 8,height = 10)
 ```
-
