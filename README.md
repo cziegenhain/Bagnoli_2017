@@ -1,5 +1,9 @@
 # Bagnoli_2017
-Code for analysis of single-cell RNA-seq data of Bagnoli et al., 2017
+This repository contains the code for analysis of single-cell RNA-seq data of Bagnoli et al., 2017.
+
+## mcSCRB-seq: sensitive and powerful single-cell RNA sequencing
+Single-cell RNA sequencing (scRNA-seq) has emerged as the central genome-wide method to characterize cellular identities and processes. While performance of methods is improving, an optimum in terms of sensitivity, efficiency and/or flexibility has not been reached yet. Among the plate-based counting methods that are well suited for quantifying gene expression for hundreds of cells across many samples, “Single-Cell RNA-Barcoding and Sequencing” (SCRB-seq) is one of the most powerful ones. Based on this protocol, we systematically evaluated reverse transcriptases, buffer modifications and PCR polymerases.
+In particular, the addition of polyethylene glycol increased the sensitivity considerably. Based on these evaluations, we developed molecular crowding SCRB-seq (mcSCRB-seq), a fast, cost-efficient and sensitive protocol. By analyzing mouse embryonic stem cells and ERCC spike-ins we show that mcSCRB-seq is the most sensitive scRNA-seq method to date.
 
 ## Preprocessing
 All scRNA-seq data was preprocessed with [zUMIs](https://github.com/sdparekh/zUMIs/) (Parekh et al., 2017).
