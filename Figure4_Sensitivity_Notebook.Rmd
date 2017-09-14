@@ -5,14 +5,14 @@ output:
     html_preview: false
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
 
 Use this code to reproduce Figure 4 from Bagnoli et al., 2017.
 
 
 Step 1: load required packages & functions:
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-pckgs <- c("ggplot2","dplyr","cowplot")
+pckgs <- c("here","ggplot2","dplyr","cowplot")
 lapply(pckgs, function(x) suppressMessages(require(x, character.only = TRUE)))
 
 SCRB_col <- "#4CAF50"
@@ -63,17 +63,16 @@ format_si <- function(...) {
           prefix[i])
   }
 }
-
-path_to_data <- "/Volumes/htp/mcSCRB-seqPaper/Analysis_GitHub/Bagnoli_2017/Data/"
+path_to_data <- here::here()
 
 ```
 
 
 Step 2: load data:
 ```{r}
-JM8 <- readRDS(paste(path_to_data,"JM8.rds",sep=""))
-JM8_barcodeinfo <- read.table(paste(path_to_data,"barcodes_QCfilter.txt",sep=""), header=T, sep="\t",stringsAsFactors = F)
-J1_ERCC <- readRDS(paste(path_to_data,"J1_ERCC.rds",sep=""))
+JM8 <- readRDS(paste(path_to_data,"Data/JM8.rds",sep="/"))
+JM8_barcodeinfo <- read.table(paste(path_to_data,"Data/barcodes_QCfilter.txt",sep="/"), header=T, sep="\t",stringsAsFactors = F)
+J1_ERCC <- readRDS(paste(path_to_data,"Data/J1_ERCC.rds",sep="/"))
 ```
 
 
@@ -155,6 +154,6 @@ p_Fig4b
 Step 8: Save final plot
 ```{r warning=FALSE}
 p_Fig4 <- plot_grid(p_Fig4a,p_Fig4b,align = "hv",labels=c("A","B"),nrow = 2)
-ggsave(p_Fig4,filename = "Figure4.pdf",device="pdf",width = 8,height = 10)
+ggsave(p_Fig4,filename = paste(path_to_data,"PDF_output","Figure4.pdf",sep="/"),device="pdf",width = 8,height = 10)
 ```
 
