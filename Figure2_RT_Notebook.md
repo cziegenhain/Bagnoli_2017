@@ -102,7 +102,7 @@ Step 5: Plot Panel C (cDNA yield vs UHRR input)
 p_Fig2c<-ggplot()+
   geom_point(data=PEG_sens, aes(x=input, y=yield, colour=PEG))+
   stat_smooth(data=PEG_sens, aes(x=input, y=yield, colour=PEG), se=F, method = lm)+
-  xlab("UHRR input (ng)")+
+  xlab("UHRR input (pg)")+
   ylab("cDNA yield (ng)")+
   theme(axis.text = element_text(face="bold"), axis.title = element_text(face="bold"))+
   guides(colour=guide_legend(title=NULL))+
